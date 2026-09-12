@@ -1,4 +1,11 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64">
+  <title>Neural spike raster</title>
   <rect width="64" height="64" rx="14" fill="#1d1d1f"/>
-  <text x="32" y="42" text-anchor="middle" font-family="Arial, sans-serif" font-size="29" fill="#f5f5f7">AR</text>
+  <g fill="none" stroke="#f5f5f7" stroke-width="2.5" stroke-linecap="round">
+    <path d="M16.18 9v6 M16.41 9v6 M19.3 9v6 M21.58 9v6 M33.58 9v6 M43.74 9v6"/>
+    <path d="M7.82 19v6 M12.75 19v6 M13.02 19v6 M15.24 19v6 M21.58 19v6 M21.82 19v6 M23.82 19v6 M33.26 19v6 M40.35 19v6 M42.59 19v6 M50.6 19v6"/>
+    <path d="M7.06 29v6 M21.81 29v6 M32.59 29v6 M36.33 29v6 M37.85 29v6"/>
+    <path d="M10.69 39v6 M11.57 39v6 M12.48 39v6 M29.41 39v6 M37.74 39v6 M52.55 39v6"/>
+    <path d="M13.92 49v6 M46.46 49v6 M50.74 49v6"/>
+  </g>
 </svg>
