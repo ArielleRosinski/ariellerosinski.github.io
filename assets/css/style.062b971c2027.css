@@ -3,25 +3,25 @@
   --font-text: "SF Pro Text", "SF Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   --font-display: "SF Pro Display", "SF Pro", -apple-system, BlinkMacSystemFont, "Helvetica Neue", "Segoe UI", Arial, sans-serif;
   --background: #fff;
-  --control-hover: #edf6f1;
-  --ink: #293b4d;
-  --heading: #142d4e;
-  --link: #087f5b;
-  --link-hover: #065f46;
-  --muted: #5d6c7b;
-  --line: #dbe8e2;
+  --control-hover: #f0f2fa;
+  --ink: #45474d;
+  --heading: #121317;
+  --link: #315bc4;
+  --link-hover: #6546b5;
+  --muted: #616570;
+  --line: #e3e5eb;
 }
 
 :root[data-theme="dark"] {
   color-scheme: dark;
-  --background: #070c14;
-  --control-hover: #121e2b;
-  --ink: #dbe5ef;
-  --heading: #c6ddf7;
-  --link: #6ee7b7;
-  --link-hover: #a7f3d0;
-  --muted: #a5b5c6;
-  --line: #22303e;
+  --background: #080a10;
+  --control-hover: #191d2d;
+  --ink: #dce0e9;
+  --heading: #f8f9fc;
+  --link: #a3bcff;
+  --link-hover: #c7b8ff;
+  --muted: #a9adb8;
+  --line: #272b36;
 }
 
 * { box-sizing: border-box; }
@@ -115,7 +115,7 @@ p { margin: 0 0 20px; }
 }
 @media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
 @media print {
-  :root, :root[data-theme="dark"] { color-scheme: light; --background: #fff; --ink: #293b4d; --heading: #142d4e; --link: #087f5b; --muted: #5d6c7b; --line: #dbe8e2; }
+  :root, :root[data-theme="dark"] { color-scheme: light; --background: #fff; --ink: #45474d; --heading: #121317; --link: #315bc4; --muted: #616570; --line: #e3e5eb; }
   .layout { display: block; padding: 0; }
   .profile { position: static; margin-bottom: 24px; }
   .portrait { width: 100px; height: 100px; }
