@@ -1,4 +1,4 @@
-"""Give shared CSS/JS content-based URLs, then update both static pages."""
+"""Version shared assets and page links together for a consistent release."""
 
 import hashlib
 from pathlib import Path
@@ -18,11 +18,19 @@ for source in SOURCES:
     for name, html in pages.items():
         pages[name] = re.sub(pattern, generated.name, html)
 
-    # Remove only generated copies of this asset from previous releases.
-    for old in path.parent.glob(f"{path.stem}.*{path.suffix}"):
-        if old != generated and re.fullmatch(f"{re.escape(path.stem)}\\.[0-9a-f]{{12}}{re.escape(path.suffix)}", old.name):
-            old.unlink()
+    # Keep older generated assets: cached HTML may still reference them.
+
+# A fixed page query can reopen cached HTML containing an older stylesheet.
+# Hash both pages (with old release queries removed) so navigation always stays
+# within the same release. Canonical URLs remain the ordinary public URLs.
+page_link = re.compile(r'href="(\.{1,2}/(?:pubs/)?)(?:\?v=[^"&]*)?"')
+pages = {name: page_link.sub(r'href="\1"', html) for name, html in pages.items()}
+release = hashlib.sha256("\n".join(pages[name] for name in sorted(pages)).encode()).hexdigest()[:12]
+pages = {
+    name: page_link.sub(lambda match: f'href="{match.group(1)}?v={release}"', html)
+    for name, html in pages.items()
+}
 
 for name, html in pages.items():
     (ROOT / name).write_text(html)
-    print(f"Updated shared assets in {name}")
+    print(f"Updated {name} to release {release}")

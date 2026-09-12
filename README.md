@@ -22,7 +22,7 @@ Open http://localhost:8000. Publications are at http://localhost:8000/pubs/.
 
 The profile and navigation appear in both HTML pages; update both when changing those details. Relative links also allow the pages to be opened directly from the filesystem.
 
-After editing the CSS or theme script, run `python3 scripts/update_assets.py`. This creates copies with content hashes in their filenames and updates both pages to use the same versions, preventing stale asset caches. Commit the generated files alongside the source files and HTML. No build tools are needed to serve the site. Page links retain their `?v=2` release suffix.
+After editing either page, the CSS, or the theme script, run `python3 scripts/update_assets.py`. This creates assets with content hashes in their filenames and updates both pages and their navigation links as one release, preventing navigation from reopening an older cached palette. The normal canonical URLs stay unchanged. Older generated assets are retained so cached pages can still load them. Commit the generated files alongside the source files and HTML. No build tools are needed to serve the site.
 
 ## Publish with GitHub Pages
 
