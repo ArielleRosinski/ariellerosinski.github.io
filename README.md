@@ -32,4 +32,6 @@ Push these files to the `ariellerosinski.github.io` repository. In the repositor
 
 Profile details and all six publication/poster entries come from the supplied academic information. Publication titles link to arXiv, PMLR, or the preprint DOI where available. Poster titles are plain text until individual poster links are added.
 
-The layout takes inspiration from [Eva Yi Xie's website](https://minzsiure.github.io/), and the publication list from [Lior Fox's publications page](https://liorfox.github.io/pubs). The HTML and CSS are written for this site.
+The current visual design takes inspiration from [Apple's website](https://www.apple.com/): a translucent navigation bar, large system typography, neutral surfaces, rounded sections, and blue links. Home and Publications share the same profile header and light/dark palettes. Research interests and background remain intentionally blank.
+
+The original academic layout was inspired by [Eva Yi Xie's website](https://minzsiure.github.io/), and the publication list by [Lior Fox's publications page](https://liorfox.github.io/pubs). The HTML and CSS are written for this site.
