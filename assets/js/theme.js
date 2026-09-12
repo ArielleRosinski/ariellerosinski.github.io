@@ -24,11 +24,18 @@
   // Set the palette before the page is painted to avoid a light flash.
   applyTheme(preference || (systemTheme.matches ? "dark" : "light"));
 
-  systemTheme.addEventListener("change", (event) => {
+  function followSystemTheme(event) {
     if (!preference) applyTheme(event.matches ? "dark" : "light");
-  });
+  }
 
-  document.addEventListener("DOMContentLoaded", () => {
+  if (typeof systemTheme.addEventListener === "function") {
+    systemTheme.addEventListener("change", followSystemTheme);
+  } else if (typeof systemTheme.addListener === "function") {
+    // Older Safari versions expose the legacy MediaQueryList API.
+    systemTheme.addListener(followSystemTheme);
+  }
+
+  function initializeToggle() {
     const button = document.querySelector(".theme-toggle");
     if (!button) return;
     applyTheme(root.dataset.theme);
@@ -42,5 +49,11 @@
         // Keep the selected theme for this page even without persistence.
       }
     });
-  });
+  }
+
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", initializeToggle, { once: true });
+  } else {
+    initializeToggle();
+  }
 })();

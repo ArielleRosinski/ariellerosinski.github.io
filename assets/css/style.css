@@ -59,7 +59,6 @@ a:focus-visible, button:focus-visible { outline: 2px solid var(--link); outline-
 }
 .profile-name { margin: 0 0 10px; font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -.65px; }
 .profile-name a { color: var(--heading); }
-.role { margin: 0 0 5px; font-size: 17px; }
 .affiliation { margin: 0 0 18px; color: var(--muted); font-size: 15px; line-height: 1.6; }
 .profile-links { display: flex; flex-wrap: wrap; justify-content: center; align-items: center; gap: 10px 18px; margin-top: 20px; font-size: 14px; }
 .profile-links a { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; }
@@ -91,7 +90,6 @@ p { margin: 0 0 20px; }
 .publication .venue { color: var(--muted); font-style: italic; }
 .publication strong { font-weight: 600; }
 .publication-note { color: var(--muted); font-size: 13px; }
-.site-footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
 
 @media (max-width: 800px) {
   .layout { grid-template-columns: 200px minmax(0, 1fr); gap: 35px; padding: 45px 24px 24px; }
@@ -116,6 +114,6 @@ p { margin: 0 0 20px; }
   .layout { display: block; padding: 0; }
   .profile { position: static; margin-bottom: 24px; }
   .portrait { width: 100px; height: 100px; }
-  .navigation, .skip-link, .site-footer { display: none; }
+  .navigation, .skip-link { display: none; }
   .publication { break-inside: avoid; }
 }
