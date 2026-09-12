@@ -1,6 +1,6 @@
 # Arielle Rosinski's website
 
-A simple, responsive academic website for GitHub Pages. Plain HTML and CSS; no build step or JavaScript required.
+A simple, responsive academic website for GitHub Pages. Plain HTML and CSS with a small JavaScript theme toggle; no build step required. Content remains accessible without JavaScript.
 
 ## Preview locally
 
@@ -16,9 +16,10 @@ Open http://localhost:8000. Publications are at http://localhost:8000/pubs/.
 
 - `index.html`: home page. Research interests and background are intentionally blank; add text below the corresponding headings.
 - `pubs/index.html`: publications, grouped into papers/preprints and conference posters. The asterisks mark equal contributions from the CV.
-- `assets/css/style.css`: shared layout, typography, and responsive styles.
+- `assets/css/style.css`: shared layout, typography, responsive styles, and light/dark palettes.
+- `assets/js/theme.js`: sun/moon theme toggle. Defaults to the system preference and remembers explicit choices in browser storage.
 - `assets/img/arielle-rosinski.jpg`: supplied profile photograph, copied unchanged.
-- `assets/docs/arielle-rosinski-cv.pdf`: downloadable CV, copied from `Arielle_CV.pdf`.
+- `assets/docs/arielle-rosinski-cv.pdf`: CV source copy from `Arielle_CV.pdf`; not linked from the website.
 
 The profile and navigation appear in both HTML pages; update both when changing those details. Relative links also allow the pages to be opened directly from the filesystem.
 
