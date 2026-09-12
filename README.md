@@ -17,12 +17,12 @@ Open http://localhost:8000. Publications are at http://localhost:8000/pubs/.
 - `index.html`: home page. Research interests and background are intentionally blank; add text below the corresponding headings.
 - `pubs/index.html`: publications, grouped into papers/preprints and conference posters. The asterisks mark equal contributions.
 - `assets/css/style.css`: shared layout, typography, responsive styles, and light/dark palettes.
-- `assets/js/theme.js`: sun/moon theme toggle. Defaults to the system preference and remembers explicit choices in browser storage.
+- `assets/js/theme.js`: sun/moon theme toggle. Defaults to the system preference, remembers explicit choices, and synchronizes pages restored from history and other open tabs. If storage is unavailable, internal links carry the theme selection.
 - `assets/img/arielle-rosinski.jpg`: supplied profile photograph, copied unchanged.
 
 The profile and navigation appear in both HTML pages; update both when changing those details. Relative links also allow the pages to be opened directly from the filesystem.
 
-Page links, the stylesheet, and the theme script use a shared `?v=2` release suffix so browsers request fresh copies after an update. Increment this suffix in both HTML pages for future releases.
+After editing the CSS or theme script, run `python3 scripts/update_assets.py`. This creates copies with content hashes in their filenames and updates both pages to use the same versions, preventing stale asset caches. Commit the generated files alongside the source files and HTML. No build tools are needed to serve the site. Page links retain their `?v=2` release suffix.
 
 ## Publish with GitHub Pages
 
