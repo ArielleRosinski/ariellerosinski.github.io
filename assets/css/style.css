@@ -1,0 +1,98 @@
+:root {
+  color-scheme: light;
+  --ink: #303940;
+  --heading: #173e54;
+  --link: #23799a;
+  --muted: #66737a;
+  --line: #e4e9eb;
+}
+
+* { box-sizing: border-box; }
+html { scroll-behavior: smooth; }
+body {
+  margin: 0;
+  background: #fff;
+  color: var(--ink);
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
+  font-size: 16px;
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+a { color: var(--link); text-decoration: none; text-underline-offset: 4px; }
+a:hover { text-decoration: underline; }
+a:focus-visible { outline: 2px solid var(--link); outline-offset: 5px; border-radius: 2px; }
+.skip-link { position: absolute; top: -80px; left: 16px; padding: 8px 16px; background: #fff; z-index: 2; }
+.skip-link:focus { top: 16px; }
+.layout {
+  display: grid;
+  grid-template-columns: 240px minmax(0, 650px);
+  gap: 76px;
+  max-width: 1030px;
+  margin: 0 auto;
+  padding: 70px 32px 32px;
+  align-items: start;
+}
+.profile { position: sticky; top: 60px; text-align: center; }
+.portrait {
+  display: block;
+  width: 174px;
+  height: 174px;
+  margin: 0 auto 25px;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center;
+}
+.profile-name { margin: 0 0 10px; font-size: 28px; line-height: 1.25; font-weight: 500; letter-spacing: -.65px; }
+.profile-name a { color: var(--heading); }
+.role { margin: 0 0 5px; font-size: 17px; }
+.affiliation { margin: 0 0 18px; color: var(--muted); font-size: 15px; line-height: 1.6; }
+.email { font-size: 13px; }
+.profile-links { display: flex; justify-content: center; align-items: center; gap: 22px; margin-top: 20px; font-size: 14px; }
+.profile-links a { display: inline-flex; align-items: center; gap: 6px; }
+.profile-links svg { width: 17px; height: 17px; }
+.navigation { display: flex; flex-wrap: wrap; gap: 28px; border-bottom: 1px solid var(--line); padding: 0 0 17px; margin-bottom: 39px; }
+.navigation a { font-size: 15px; color: var(--muted); }
+.navigation a[aria-current="page"] { color: var(--heading); font-weight: 600; }
+main { min-width: 0; }
+h1, h2, h3 { color: var(--heading); }
+.page-title { margin: 0 0 29px; font-size: 29px; font-weight: 500; line-height: 1.25; letter-spacing: -.5px; }
+h2 { margin: 0 0 20px; font-size: 23px; font-weight: 500; line-height: 1.35; }
+p { margin: 0 0 20px; }
+.empty-section { min-height: 133px; margin-bottom: 26px; }
+.empty-section + .empty-section { min-height: 133px; }
+.cv-section { border-top: 1px solid var(--line); padding-top: 26px; }
+.cv-section p { font-size: 15px; }
+.publication-section { margin-bottom: 40px; }
+.publication-list { list-style: none; padding: 0; margin: 0; }
+.publication { margin-bottom: 26px; }
+.publication h3 { margin: 0 0 5px; font-size: 16px; line-height: 1.5; font-weight: 600; }
+.publication p { margin: 0; font-size: 14px; line-height: 1.7; }
+.publication .venue { color: var(--muted); font-style: italic; }
+.publication strong { font-weight: 600; }
+.publication-note { color: var(--muted); font-size: 13px; }
+.site-footer { margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--line); color: var(--muted); font-size: 12px; }
+
+@media (max-width: 800px) {
+  .layout { grid-template-columns: 200px minmax(0, 1fr); gap: 35px; padding: 45px 24px 24px; }
+  .profile-name { font-size: 25px; }
+  .portrait { width: 152px; height: 152px; }
+}
+@media (max-width: 620px) {
+  .layout { display: block; max-width: 560px; padding: 36px 24px 24px; }
+  .profile { position: static; margin-bottom: 34px; }
+  .portrait { width: 146px; height: 146px; margin-bottom: 18px; }
+  .affiliation { margin-bottom: 10px; }
+  .profile-links { margin-top: 14px; }
+  .navigation { justify-content: center; gap: 32px; margin-bottom: 30px; }
+  .page-title { font-size: 27px; }
+  .empty-section { min-height: 105px; }
+  .empty-section + .empty-section { min-height: 105px; }
+}
+@media (prefers-reduced-motion: reduce) { html { scroll-behavior: auto; } }
+@media print {
+  .layout { display: block; padding: 0; }
+  .profile { position: static; margin-bottom: 24px; }
+  .portrait { width: 100px; height: 100px; }
+  .navigation, .skip-link, .site-footer { display: none; }
+  .publication { break-inside: avoid; }
+}
