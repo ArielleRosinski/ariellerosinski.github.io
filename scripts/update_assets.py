@@ -23,11 +23,11 @@ for source in SOURCES:
 # A fixed page query can reopen cached HTML containing an older stylesheet.
 # Hash both pages (with old release queries removed) so navigation always stays
 # within the same release. Canonical URLs remain the ordinary public URLs.
-page_link = re.compile(r'href="(\.{1,2}/(?:pubs/)?)(?:\?v=[^"&]*)?"')
-pages = {name: page_link.sub(r'href="\1"', html) for name, html in pages.items()}
+page_link = re.compile(r'(href="|content="0; url=)(\.{1,2}/(?:pubs/)?)(?:\?v=[^"&#]*)?(#[^"]*)?"')
+pages = {name: page_link.sub(lambda match: f'{match[1]}{match[2]}{match[3] or ""}"', html) for name, html in pages.items()}
 release = hashlib.sha256("\n".join(pages[name] for name in sorted(pages)).encode()).hexdigest()[:12]
 pages = {
-    name: page_link.sub(lambda match: f'href="{match.group(1)}?v={release}"', html)
+    name: page_link.sub(lambda match: f'{match[1]}{match[2]}?v={release}{match[3] or ""}"', html)
     for name, html in pages.items()
 }
 
